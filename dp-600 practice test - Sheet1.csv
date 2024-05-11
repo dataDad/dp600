@@ -1,0 +1,1539 @@
+question,answer,needs review
+"You are planning the configuration of a new Fabric tenant.
+
+You need to recommend a solution to ensure that reports meet the following requirements:
+
+Require authentication for embedded reports.
+Allow only read-only (live) connections against Fabric capacity cloud semantic models.
+Which two actions should you recommend performing from the Fabric admin portal? Each correct answer presents part of the solution.
+
+Select all answers that apply.
+
+From Capacity settings, set XMLA Endpoint to Read Write.
+
+From Embed Codes, delete all existing codes.
+
+From Premium Per User, set XMLA Endpoint to Off.
+
+From Tenant settings, disable Allow XMLA endpoints and Analyze in Excel with on-premises semantic models.
+
+From Tenant settings, disable Publish to web.","From Tenant settings, disable Allow XMLA endpoints and Analyze in Excel with on-premises semantic models.
+This answer is correct.
+
+From Tenant settings, disable Publish to web.",1
+"You have a Fabric workspace that contains a lakehouse named Lakehouse1.
+
+A user named User1 plans to use Lakehouse explorer to read Lakehouse1 data.
+
+You need to assign a workspace role to User1. The solution must follow the principle of least privilege.
+
+Which workspace role should you assign to User1?
+
+Select only one answer.
+
+Admin
+
+Contributor
+
+Member
+
+Viewer","Contributor
+
+
+
+to read the data from a Fabric lakehouse by using Lakehouse explorer, users must be assigned roles of either Admin, Member, or Contributor. However, respecting the least privileged principle, a user must be assigned the Contributor role. The viewer role does not provide permission to read the lakehouse data through Lakehouse explorer.",1
+"You have a Fabric tenant.
+
+You notice a Fabric compute usage issue, which is causing performance issues.
+
+You need to increase the Fabric capacity unit size.
+
+What should you use?
+
+Select only one answer.
+
+Azure portal
+
+Fabric admin portal
+
+Microsoft Power BI settings
+
+Microsoft Purview hub",Azure Portal,1
+"You have a new Fabric tenant.
+
+You need to recommend a workspace architecture to meet best practices for content distribution and data governance.
+
+Which two actions should you recommend? Each correct answer presents part of the solution.
+
+Select all answers that apply.
+
+Create a copy of each semantic model in each workspace.
+
+Create direct query semantic models in each workspace.
+
+Place semantic models and reports in separate workspaces.
+
+Place semantic models and reports in the same workspace.
+
+Reuse shared semantic models for multiple reports.","Place semantic models and reports in separate workspaces.
+
+reuse shared semantic models for multiple reports",
+"You have a semantic model that pulls data from an Azure SQL database and is synced via Fabric deployment pipelines to three workspaces named Development, Test, and Production.
+
+You need to reduce the size of the query requests sent to the Azure SQL database when full semantic model refreshes occur in the Development or Test workspaces.
+
+What should you do for the deployment pipeline?
+
+Select only one answer.
+
+Add a deployment parameter rule to filter the data.
+
+Configure row-level security (RLS).
+
+Connect either workspace to an Azure Data Lake Storage Gen2 account.
+
+Enable an incremental refresh policy.",Add a deployment parameter rule to filter the data.,1
+"You have a Fabric tenant that has XMLA Endpoint set to Read Write.
+
+You need to use the XMLA endpoint to deploy changes to only one table from the data model.
+
+What is the main limitation of using XMLA endpoints for the Microsoft Power BI deployment process?
+
+Select only one answer.
+
+A PBIX file cannot be downloaded from the Power BI service.
+
+Only the user that deployed the report can make changes.
+
+Table partitioning is impossible.
+
+You cannot use parameters for incremental refresh",A PBIX file cannot be downloaded from the Power BI service.,
+"You have a Fabric tenant that contains a lakehouse.
+
+You are creating a notebook to explore the data in the lakehouse.
+
+You need create a query to find the total number of records in the fact table for every individual product. The displayed results must be sorted in descending order.
+
+How should you structure the query?
+
+Select only one answer.
+
+df.groupBy(""ProductKey"").count().sort(""count"", descending=True).show()
+
+df.groupBy(""ProductKey"").count().sort(""ProductKey"", descending=True).show()
+
+df.groupBy(""ProductKey"").count().sort(""count"").show()
+
+df.groupBy(""ProductKey"").count().sort(""ProductKey"").show()",,
+"You have the following measure that you are reviewing as part of a model audit.
+
+RANKX( ALL( 'Product'[Product Name] ), [Sales],, DESC, Skip )
+
+You need to identify what the measure is calculating.
+
+Which statement accurately describes the DAX measure?
+
+Select only one answer.
+
+ranks the product names by Sales, with the largest sales values getting the smallest (e.g. 1,2,3) ranks, and where product names that have tied values get the same rank number
+
+ranks the product names by Sales, with the largest values getting the smallest (e.g. 1,2,3) ranks, and when product names have tied values, then the next rank value, after a tie, is the rank value of the tie plus the count of tied values
+
+ranks the product names by Sales, with the smallest sales values getting the smallest (e.g. 1,2,3) ranks, and where product names that have tied values get the same rank number
+
+ranks the product names by Sales, with the smallest values getting the smallest (e.g. 1,2,3) ranks, and where product names that have tied values get unique rank numbers","
+ranks the product names by Sales, with the largest values getting the smallest (e.g. 1,2,3) ranks, and when product names have tied values, then the next rank value, after a tie, is the rank value of the tie plus the count of tied values",1
+"You have a Fabric tenant that contains a workspace named Workspace1. Workspace1 contains a lakehouse. The lakehouse contains a table named Customers and a Fabric notebook.
+
+You plan to use the notebook to profile the data.
+
+In the notebook, you set up the following DataFrame that references the Customers table.
+
+df = Spark.sql(“Select * from Customers”)
+
+You need to profile the data in the DataFrame. The solution must minimize administrative effort.
+
+What should you do?","
+Display the DataFrame by running display(df), and then clicking the Inspect button.",
+"You have a Microsoft Power BI visual.
+
+You use DAX query view to review the following code extracted from the visual.
+
+DEFINE
+	VAR __DS0Core = 
+		SUMMARIZECOLUMNS('Company'[Manufacturer], ""Sales"", 'Metrics'[Sales], ""ConstantSales"", 'Metrics'[ConstantSales])
+
+	VAR __DS0PrimaryWindowed = 
+		TOPN(1001, __DS0Core, [Sales], 0, 'Company'[Manufacturer], 1)
+
+EVALUATE
+	ROW(
+		""AnalyticsLine"", MEDIANX(KEEPFILTERS(__DS0Core), [Sales])
+	)
+
+EVALUATE
+	__DS0PrimaryWindowed
+
+ORDER BY
+	[Sales] DESC, 'Company'[Manufacturer]
+You need to identify which type of analytics line was added to the visual.
+
+What should you identify?
+
+Select only one answer.
+
+constant line
+
+max line
+
+median line
+
+percentile line
+ ",median line,
+"You use Microsoft Power BI Desktop to connect to data stored in a CSV file.
+
+You need to use Power Query Editor to identify the percentage of valid records in a column before loading the data to a report.
+
+Which Power Query option should you use?
+
+Select only one answer.
+
+Column distribution
+
+Column profile
+
+Column quality
+
+Filter by value",Column quality,
+"You have a Fabric warehouse that contains a table named customer_info. The table contains the following columns:
+
+customer_id
+name
+email
+join_date
+The warehouse also contains a table named order_info. The table contains the following columns:
+
+order_id
+customer_id
+order_total
+order_date
+You need to write a SQL query that returns all the customers who have not yet placed an order (purchased).
+
+Which SQL query should you run?
+Select only one answer.
+
+SELECT customer_info.name FROM customer_info JOIN order_info ON customer_info.customer_id = order_info.customer_id WHERE order_info.order_id IS NOT NULL
+
+SELECT name FROM customer_info INNER JOIN order_info ON customer_info.customer_id = order_info.customer_id WHERE order_info.order_id IS NULL
+
+SELECT name FROM customer_info LEFT JOIN order_info ON customer_info.customer_id = order_info.customer_id WHERE order_info.order_id IS NULL
+
+SELECT name FROM customer_info WHERE customer_id IN ( SELECT customer_id FROM order_info )","
+SELECT name FROM customer_info LEFT JOIN order_info ON customer_info.customer_id = order_info.customer_id WHERE order_info.order_id IS NULL",
+"You have a Fabric warehouse.
+
+You write the following T-SQL statement to retrieve data from a table named Sales to display the highest sales amount for specific customers.
+
+SELECT TOP 10 CustomerKey
+, SalesAmount
+, ROW_NUMBER() OVER(ORDER BY SalesAmount DESC) AS Ranking
+FROM dbo.Sales
+WHERE CustomerKey IN (1, 2, 3)
+The following is an example of the expected result.
+
+CustomerKey|SalesAmount|Ranking
+1|100|<value1>
+2|100|<value2>
+What is the Ranking value (value1 and value2) for the first two records?
+
+Select only one answer.
+
+0 and 1
+
+1 and 1
+
+1 and 2
+
+10 and 9","1 and 2
+
+The ROW_NUMBER() function simply returns the sequential number of a row within a partition, starting at 1 for the first row in each partition. Ties are not considered in the evaluation.",1
+"You have a Fabric warehouse that contains the following tables:
+
+Trip (TripDateID, PassengerCount)
+Date (DateID, Day, Month, Quarter, Year)
+You plan to use the visual Query Editor in Warehouse explorer to write a SQL statement that summarizes the number of passengers by year.
+
+Which transformations should you use?
+
+Select only one answer.
+
+Choose Append queries to append Trip and Date, and then use GroupBy.
+
+Choose GroupBy to summarize Trip data, and then use Append queries to join summarized Trip data and Date.
+
+Choose GroupBy to summarize Trip data, and then use Merge queries to join summarized Trip data and Date.
+
+Choose Merge queries to join Trip and Date, and then use GroupBy.","Choose Merge queries to join Trip and Date, and then use GroupBy.",
+"You have an Azure SQL database that contains a table named inventory. The inventory table contains the following columns:
+
+item_id
+category
+stock_quantity
+last_stocked_date
+You need to write a SQL statement that retrieves the latest last_stocked_date for each category, for which stock_quantity is less than 50.
+
+Which SQL statement should you run?
+
+Select only one answer.
+
+SELECT category, last_stocked_date FROM inventory GROUP BY category HAVING MIN(stock_quantity) < 50 ORDER BY last_stocked_date DESC
+
+SELECT category, MAX(last_stocked_date) FROM inventory WHERE stock_quantity < 50 GROUP BY category
+
+SELECT category, last_stocked_date FROM inventory WHERE stock_quantity < 50 ORDER BY last_stocked_date DESC LIMIT 1
+
+SELECT DISTINCT category, last_stocked_date FROM inventory WHERE stock_quantity < 50 ORDER BY last_stocked_date DESC",,
+"You are planning a Fabric analytics solution.
+
+You need to recommend a licensing strategy to support 10 Microsoft Power BI report authors and 600 report consumers.
+
+The solution must use Dataflow Gen2 for data ingestion and minimize costs.
+
+Which Fabric license type should you recommend?
+
+Select only one answer.
+
+F16
+
+F32
+
+F64
+
+Premium Per User (PPU)","F64
+
+While F32 and F16 license types will provide all the necessary set of features, these licenses are not cost-efficient because report consumers require a Pro or PPU license. Starting with the F64 license, report consumers can use a free per-user license. PPU is incorrect, because you cannot create non-Power BI items (in this case Dataflow Gen2) with PPU.\",
+"You have a Fabric lakehouse named Lakehouse1.
+
+You write the following T-SQL statement targeting the SQL analytics endpoint of Lakehouse1.
+
+SELECT CalendarYear
+, SalesAmount
+, **<target1>** (SalesAmount, **<target2>**, 0) OVER(ORDER BY CalendarYear) AS PreviousSalesAmount
+FROM dbo.Sales
+WHERE CalendarYear BETWEEN 2020 AND 2023
+You need to compare the sales amount and ensure that the statement displays the value from the previous year in the PreviousSalesAmount column.
+
+The following is an example of the expected result.
+
+CalendarYear|SalesAmount|PreviousSalesAmount
+2020|100|0
+2021|200|100
+2022|150|200
+2023|500|150
+Which function should you insert for <target1>, and which numeric value should you provide for <target2> in the statement?","LAG and 1
+
+The LAG() function accesses the data from a previous row in the same result set by using a given physical offset. The offset argument represents the number of rows returned from the current row from which to obtain a value. Offset cannot be a negative value.
+
+LAG (Transact-SQL) - SQL Server | Microsoft Learn
+
+",
+"You are developing a Microsoft Power BI semantic model.
+
+Two tables in the data model are not connected in a physical relationship.
+
+You need to establish a virtual relationship between the tables.
+
+Which DAX function should you use?
+
+Select only one answer.
+
+CROSSFILTER()
+
+PATH()
+
+TREATAS()
+
+USERELATIONSHIP()","TREATAS()
+
+TREATAS() applies the result of a table expression as filters to columns from an unrelated table. USERELATIONSHIP() activates different physical relationships between tables during a query execution. CROSSFILTER() defines the cross filtering direction of a physical relationship. PATH() returns a string of all the members in the column hierarchy.",
+"You have a Microsoft Power BI report that contains a bar chart visual.
+
+You need to ensure that users can change the y-axis category of the bar chart by using a slicer selection.
+
+Which Power BI feature should you add?
+
+Select only one answer.
+
+calculation groups
+
+drillthrough
+
+field parameters
+
+WhatIf parameters
+ ",field paramaters,
+"You are designing a Microsoft Power BI semantic model that will contain 50 different measures, such as Sales Amount, Order Quantity, and Refund Amount.
+
+For each measure, you need to create the same set of time intelligence calculations such as month-to-date, year-to-date, and year-over-year change.
+
+The solution must minimize administrative effort.
+
+What should you do?
+
+Select only one answer.
+
+Create a calculation group.
+
+Create a measure folder in the report model.
+
+Create all the measures in the Power BI Desktop Model view.
+
+Use Tabular Editor to create the measures in bulk.",Create a calculation group.,
+"You are working on a Microsoft Power BI report based on a Power BI semantic model that contains the following tables:
+
+Sales (SalesAmount,OrderDateKey,ShipDateKey)
+Date (DateKey, Date, Month, Quarter, Year)
+You have connected the Date table to the Sales table on DateKey to OrderDateKey with a 1-to-many active relationship. You have connected the Date table to the Sales table on DateKey to ShipDateKey with a 1-to-many inactive relationship.
+
+You need to create two measures that calculate Sales Amount Ordered and Sales Amount Shipped so that you can place them side-by-side in a table visual and analyze them by Year.
+
+How should you create the measures?
+
+Select only one answer.
+
+Sales Shipped = CALCULATE ( SUM ( 'Sales'[SalesAmount] ), RELATED ( 'Date'[DateKey], 'Sales'[ShipDateKey] ) )
+
+Sales Ordered = CALCULATE ( SUM ( 'Sales'[SalesAmount] ), RELATED ( 'Date'[DateKey], 'Sales'[OrderDateKey] ) ) Sales Shipped = CALCULATE ( SUM ( 'Sales'[SalesAmount] ), USERELATIONSHIP ( 'Date'[DateKey], 'Sales'[ShipDateKey] ) )
+
+Sales Ordered = SUM ( 'Sales'[SalesAmount] ) Sales Shipped = CALCULATE ( SUM ( 'Sales'[SalesAmount] ), RELATED ( 'Date'[DateKey], 'Sales'[ShipDateKey] ) ) Sales Ordered = CALCULATE ( SUM ( 'Sales'[SalesAmount] ), RELATED ( 'Date'[DateKey], 'Sales'[OrderDateKey] ) )
+
+Sales Ordered = SUM ( 'Sales'[SalesAmount] ) Sales Shipped = CALCULATE ( SUM ( 'Sales'[SalesAmount] ), USERELATIONSHIP ( 'Date'[DateKey], 'Sales'[ShipDateKey] ) )","
+Sales Ordered = SUM ( 'Sales'[SalesAmount] )
+Sales Shipped = CALCULATE ( SUM ( 'Sales'[SalesAmount] ), USERELATIONSHIP ( 'Date'[DateKey], 'Sales'[ShipDateKey] ) )",
+"You have an Azure SQL database.
+
+You have a Microsoft Power BI report connected to a semantic model that uses a DirectQuery connection to the database.
+
+You need to reduce the number of queries sent to the database when a user is interacting with the report by using filters and/or slicers.
+
+What should you do?
+
+Select only one answer.
+
+Add apply buttons to all the basic filters.
+
+Add Top N filters to all the visuals.
+
+Change default visual interaction from cross highlighting to cross filtering.
+
+Enable automatic page refresh for each report page.",Add apply buttons to all the basic filters.,
+"You have a Microsoft Power BI report page that takes longer than expected to display all its visuals.
+
+You need to identify which report element consumes most of the rendering time. The solution must minimize administrative effort and how long it takes to capture the rendering information of each element on the report page.
+
+What should you use?
+
+Select only one answer.
+
+DAX Studio
+
+Performance analyzer
+
+SQL Server Profiler
+
+Tabular Editor",Performance analyzer,
+"You publish a very large Microsoft Power BI semantic model to a Power BI workspace.
+
+The model refresh will take two hours.
+
+In Power BI Desktop, you limit the data you work with by using parameters.
+
+You need to update the definition of a measure.
+
+What can you use to update the measure definition without having to refresh the model in the Power BI service?
+
+Select only one answer.
+
+ALM Toolkit
+
+DAX Studio
+
+Microsoft Excel
+
+Power BI Desktop","ALM Toolkit
+
+
+The ALM Toolkit is a schema diff tool for Power BI models and can be used to perform the deployment of metadata only. Deploying from Power BI Desktop will overwrite the model’s data in the service and will require a refresh by the Power BI service to load the data. DAX Studio does not update metadata. You can connect to Power BI semantic models by using Excel in read-only mode.",
+"You are developing a large Microsoft Power BI semantic model that will contain a fact table. The table will contain 400 million rows.
+
+You plan to leverage user-defined aggregations to speed up the performance of the most frequently run queries.
+
+You need to confirm that the queries are mapped to aggregated data in the tables.
+
+Which two tools should you use? Each correct answer presents part of the solution.
+
+Select all answers that apply.
+
+DAX Studio
+
+Performance analyzer
+
+SQL Server Profiler
+
+Tabular Editor
+
+VertiPaq Analyzer","
+DAX Studio
+
+
+SQL Server Profiler
+",1
+"You are working with a large semantic model.
+
+You need to identify which columns have contributed the most to the model size so that you can focus design efforts on either removing them from the model or reducing their cardinality.
+
+Which external tool can you use to get information about the size of each table and column in a model?
+
+Select only one answer.
+
+ALM Toolkit
+
+DAX Studio
+
+Metadata Translator
+
+PowerBI.tips - Business Ops","
+DAX Studio",
+"You have a Microsoft Power BI semantic model assigned to you for ownership and maintenance.
+
+You need to perform an audit on the model to identify and resolve potential performance or design issues.
+
+Which Tabular Editor tool should you use?
+
+Select only one answer.
+
+Best Practices Analyzer
+
+Perspective Editor
+
+TOM Explorer
+
+Vertipaq Analyzer","
+Best Practices Analyzer",
+"You have a Fabric tenant that contains a workspace named Workspace1. Workspace1 contains a warehouse that has a table named Orders.
+
+You have a Microsoft Power BI semantic model in Power BI Desktop that sources data from the Orders table.
+
+You need to enable incremental refresh for the table.
+
+Which two parameters should you create?
+
+Select only one answer.
+
+FullLoad and IncrementalLoad
+
+LowerBound and UpperBound
+
+RangeStart and RangeEnd
+
+StartDate and EndDate",RangeStart and RangeEnd,
+"You have a semantic model that contains a Calendar Dimension table and a Sales fact table. The tables have a 1-to-many relationship.
+
+From DAX studio, you discover a DAX measure that is performing slowly against the model.
+
+You plan to modify a filter in the measure to improve performance.
+
+Which measure provides the best performance for the model?
+
+Select only one answer.
+
+CALCULATE( [Sales], Calendar[Year] = 2023 )
+
+CALCULATE( [Sales], FILTER( Sales, Sales[Year] = 2023) )
+
+CALCULATE( [Sales], FILTER( Sales, YEAR( Sales[Date]) = 2023) )
+
+CALCULATE( [Sales], Sales[Year] = 2023) )","CALCULATE( [Sales], Calendar[Year] = 2023 )
+
+Filtering on the Calendar Dimension table will almost always perform faster than filtering directly on any fact table, as that requires more processing by both the DAX formula and the storage engine.",
+"You have a Fabric tenant that contains a lakehouse.
+
+On a local computer, you have a CSV file that contains a static list of company office locations.
+
+You need to recommend a method to perform a one-time copy to ingest the CSV file into the lakehouse. The solution must minimize administrative effort.
+
+Which method should you recommend?
+
+Select only one answer.
+
+a Dataflow Gen2 query
+
+a local file upload by using Lakehouse explorer
+
+a pipeline with the Copy data activity
+
+a Spark notebook","
+a local file upload by using Lakehouse explorer",
+"You have a Fabric tenant that contains a workspace named Workspace1. Workspace1 contains two data warehouses named Warehouse1 and Warehouse2. Warehouse1 contains HR data. Warehouse2 contains sales data.
+
+You are analyzing the sales data in Warehouse2 by using the SQL analytics endpoint.
+
+You need to recommend a solution that utilizes a query to combine the sales data from Warehouse2 with the HR data from Warehouse1. The solution must minimize development effort and data movement.
+
+What should you recommend?
+
+Select only one answer.
+
+Set up a Dataflow Gen2 query to copy the HR data from Warehouse1 to Warehouse2 and reference the copied data in the query.
+
+Set up a pipeline that uses a Copy data activity to copy the HR data from Warehouse1 to Warehouse2 and reference the copied data in the query.
+
+Use a Spark notebook to copy the HR data from Warehouse1 to Warehouse2 and reference the copied data in the query.
+
+Use cross-database querying between Warehouse1 and Warehouse2.","Use cross-database querying between Warehouse1 and Warehouse2.
+
+You can query data across Fabric warehouses by using cross-database querying. While you can copy the data from one warehouse to another, this involves moving data.
+
+",
+"You have a Fabric tenant that contains two lakehouses named Lakehouse1 and Lakehouse2. Lakehouse1 contains a table named FactSales that is partitioned by a column named CustomerID.
+
+You need to create a shortcut to the FactSales table in Lakehouse2. The shortcut must only connect to data for CustomerID 100.
+
+What should you do?
+
+Select only one answer.
+
+Add a filter activity after the copy data activity in a data pipeline.
+
+As you create the shortcut select the CustomerKey=100 folder under the FactSales folder in Files.
+
+As you create the shortcut, select the CustomerKey=100 folder under the FactSales folder in Tables.
+
+In the semantic models connected to the lakehouses, add a report-level filter for CustomerKey = 100.","As you create the shortcut, select the CustomerKey=100 folder under the FactSales folder in Tables.",
+"You have a Fabric workspace named Workspace1 that contains a lakehouse named Lakehouse1.
+
+You have write permissions to an Azure Data Lake Storage Gen2 account named storage1 that contains a folder named Folder1.
+
+You plan to delete a shortcut named Shortcut1 that points to a file named File1 stored in Folder1.
+
+You run the delete operation on the following path.
+
+Lakehouse1\Files\Shortcut1
+
+What will occur after you run the delete operation?
+
+Select only one answer.
+
+Only File1 and Folder1 will be deleted.
+
+Only File1 will be deleted.
+
+Only Shortcut1 will be deleted.
+
+Shortcut1, Folder1, and File1 will be deleted.","
+Only Shortcut1 will be deleted.",
+"You have a Fabric workspace. The workspace contains a Dataflow Gen2 query that displays dimensional product information. The query table contains a column named Product ID/Name that is a concatenation of Product ID and Product Name values.
+
+You need to use an applied step in Microsoft Power Query Editor to create a new column for Product ID and Product Name. The solution must use a single command to create two new columns and remove the original combined (Product ID/Name) column.
+
+Which applied step should you use?
+
+Select only one answer.
+
+Add Column From Example
+
+Conditional Column
+
+Replace Values
+
+Split Column",Split Column,
+"You have a Fabric workspace that contains a Microsoft Power BI report.
+
+You need to modify the column names in the Power BI report without changing the original names in the underlying Delta table.
+
+Which warehouse object should you create?
+
+Select only one answer.
+
+columnstore index
+
+schema
+
+table-valued function
+
+view",view,
+"You have a Fabric tenant.
+
+Your company has 1 TB of legacy accounting data stored in an Azure Data Lake Storage Gen2 account. The data is queried only once a year for a few ad-hoc reports that submit very selective queries.
+
+You plan to create a Fabric lakehouse or warehouse to store company sales data. Developers must be able to build reports from the lakehouse or warehouse based on the sales data. The developers must also be able to do ad-hoc analysis of the legacy data at the end of each year.
+
+You need to recommend which Fabric architecture to create and the process for integrating the accounting data into Fabric. The solution must minimize administrative effort and costs.
+
+What should you recommend?
+
+Select only one answer.
+
+Ingest the sales data into the Fabric lakehouse and set up a shortcut to the legacy accounting data in the storage account.
+
+Ingest the sales data into the Fabric lakehouse and use a pipeline to move the legacy accounting data into the lakehouse.
+
+Ingest the sales data into the Fabric warehouse and use a pipeline to move the legacy accounting data into the warehouse.
+
+Set up a lakehouse with a shortcut to the legacy accounting data. Ingest the sales data into the Fabric warehouse and add the SQL analytics endpoint of the lakehouse to the warehouse for cross querying.","Ingest the sales data into the Fabric lakehouse and set up a shortcut to the legacy accounting data in the storage account.
+
+Since the legacy accounting data is only accessed once a year for a few ad-hoc queries that are highly selective, there is no need to move the data into a Fabric workspace. Shortcuts enable the querying of remote data without having to move the data. Shortcuts are only supported in a Fabric lakehouse. While you can add the SQL endpoint of a lakehouse to a warehouse for cross database querying, that is not the simplest method. The simplest method is to use a shortcut.",1
+"You have a Fabric tenant that contains a lakehouse named Lakehouse1.
+
+You have an external Snowflake database that contains a table with 200 million rows.
+
+You need to use a data pipeline to migrate the database to Lakehouse1.
+
+What is the most performant (fastest) method for ingesting data this large (200 million rows) by using a data pipeline?
+
+Select only one answer.
+
+Data Pipeline (Copy data)
+
+Data Pipeline (Dataflow Gen2)
+
+Data Pipeline (Lookup)
+
+Data Pipeline Spark (Notebook)","
+Data Pipeline (Copy data)
+
+
+Copy data is the fastest and most direct method for migrating data from one system to another, with no transformations applied.",1
+"You have a Fabric tenant that contains a lakehouse named Lakehouse1.
+
+You need to ingest data into Lakehouse1 from a large Azure SQL Database table that contains more than 500 million records. The data must be ingested without applying any additional transformations. The solution must minimize costs and administrative effort.
+
+What should you use to ingest the data?
+
+Select only one answer.
+
+a pipeline with the Copy data activity
+
+a SQL stored procedure
+
+Dataflow Gen2
+
+notebooks","a pipeline with the Copy data activity
+
+When ingesting a large data source without applying transformations, the recommended method is to use the Copy data activity in pipelines. Notebooks are recommended for complex data transformations, whereas Dataflow Gen2 is suitable for smaller data and/or specific connectors.",
+"You have a Fabric tenant that contains a lakehouse named Lakehouse1.
+
+You have forecast data stored in Azure Data Lake Storage Gen2.
+
+You plan to ingest the forecast data into Lakehouse1. The data is already formatted, and you do NOT need to apply any further data transformations. The solution must minimize development effort and costs.
+
+Which method should you recommend to efficiently ingest the data?
+
+Select only one answer.
+
+First, download the data to your computer, and then use Lakehouse explorer to upload it to Lakehouse1.
+
+Use a Spark notebook.
+
+Use Dataflow Gen2.
+
+Use the Copy activity in a pipeline.","
+Use the Copy activity in a pipeline.",
+"You have a Fabric workspace that contains a set of Dataflow Gen2 queries.
+
+You plan to use the native Dataflow Gen2 refresh scheduler to configure the queries to refresh as often as possible.
+
+What is the fastest refresh interval that can be configured?
+
+Select only one answer.
+
+15 minutes
+
+30 minutes
+
+one hour
+
+one minute","30 minutes
+
+native refresh schedule can be scheduled every 30 minutes, like semantic models.",
+"You have a Microsoft Power BI report named Sales that uses a Microsoft Excel file as a data source. Data is imported as one flat table. The table contains the following columns: ProductID, ProductColor, ProductName, ProductCategory and SalesAmount.
+
+You need to create an optimal fact table data model by using a star schema.
+
+Which two columns should remain part of the new fact tables? Each correct answer presents part of the solution.
+
+Select all answers that apply.
+
+ProductCategory
+
+ProductColor
+
+ProductID
+
+ProductName
+
+SalesAmount","productID
+
+SalesAmount",
+"You are designing a dimension table named dimCustomer that will be used to analyze historical sales data by customer zip code. The table will be joined to a table named FactSales on a column named CustomerKey to report historical sales data by customer zip code.
+
+The sales data must be reported based on the zip codes of customers at the time of the sale, not their most recent zip code.
+
+You need to design dimCustomer to contain a fixed number of columns.
+
+Which type of dimension should you choose for dimCustomer?
+
+Select only one answer.
+
+type 0 slowly changing dimension (SCD)
+
+type 1 slowly changing dimension (SCD)
+
+type 2 slowly changing dimension (SCD)
+
+type 3 slowly changing dimension (SCD)","type 2 slowly changing dimension
+
+Type 0 SCD attributes never change and will not fit the requirement. Type 1 SCD overwrites the changes and historical analysis of data based on the zip code at the time of the sales will be impossible. Type 2 SCD will keep track of historical data by adding new records with new keys whenever an attribute changes. Type 3 SCD adds new columns to a table for attribute changes.",
+"You have a Fabric lakehouse named Lakehouse1 that contains a Dataflow Gen2 query.
+
+You have an Azure SQL database that contains a type 2 slowly changing dimension database table named CustomerMaster.
+
+CustomerMaster contains the following columns:
+
+Customer ID – Number
+EffectiveDate – Date
+Address – Text
+Status - Text
+You plan to ingest CustomerMaster into Lakehouse1. The solution must only keep the latest record (unique) per Customer ID.
+
+Which two applied steps should you use? Each correct answer presents part of the solution.
+
+Select all answers that apply.
+
+Keep top rows
+
+Max Customer ID
+
+Remove duplicates on the Customer ID column
+
+Remove duplicates on the CustomerMaster table
+
+Sort on Customer ID, EffectiveDate","1. sort on customer id, effective date
+
+2. Remove duplicates on the customer ID columnn
+
+Sorting CustomerID and EffectiveDate, and then removing duplicates on the Customer ID column is the only way to keep the correct latest row per customer ID. All other options will not correctly keep the latest customer row per effective date.
+
+",
+"You have a Fabric warehouse.
+
+You create a table named dimCustomer by using the following code.
+
+     CREATE TABLE dbo.Dim_Customer (
+         CustomerKey VARCHAR(255) NOT NULL,
+         Name VARCHAR(255) NOT NULL,
+         Email VARCHAR(255) NOT NULL
+     );
+You need to alter the table to add CustomerKey as a primary key.
+
+Which command should you run?
+
+Select only one answer.
+
+ALTER TABLE dbo.Dim_Customer add CONSTRAINT PK_Dim_Customer PRIMARY KEY CLUSTERED (CustomerKey) ENFORCED
+
+ALTER TABLE dbo.Dim_Customer add CONSTRAINT PK_Dim_Customer PRIMARY KEY CLUSTERED (CustomerKey) NOT ENFORCED
+
+ALTER TABLE dbo.Dim_Customer add CONSTRAINT PK_Dim_Customer PRIMARY KEY NONCLUSTERED (CustomerKey) ENFORCED
+
+ALTER TABLE dbo.Dim_Customer add CONSTRAINT PK_Dim_Customer PRIMARY KEY NONCLUSTERED (CustomerKey) NOT ENFORCED","ALTER TABLE dbo.Dim_Customer add CONSTRAINT PK_Dim_Customer PRIMARY KEY NONCLUSTERED (CustomerKey) NOT ENFORCED
+
+
+PRIMARY KEY is only supported when NONCLUSTERED and NOT ENFORCED are both used.",1
+"You are designing a semantic model for a Microsoft Power BI report. You have a table named Employee that contains the following columns: EmployeeID, EmployeeName, and EmployeePosition. You have a table named Contract that contains the following columns: EmployeeID and ContractType.
+
+You plan to denormalize both tables and include the ContractType attribute.
+
+You need to ensure that all the rows in the Employee table are preserved and include any matching rows from the Contract table.
+
+Which type of join should you specify in the Power Query Merge queries transformation?
+
+Select only one answer.
+
+cross
+
+inner
+
+Left outer
+
+Left Anti Join","Left outer
+
+A left outer join keeps all the rows from the left table (Employee) and brings any matching rows from the right table (Contract). A Left Anti Join will keep only rows from the left table and exclude any matching rows from the right table. An inner join brings only matching rows from both the left and right tables, while a cross join returns the Cartesian product of the rows in both tables.",
+"You have a Fabric warehouse.
+
+You have an Azure SQL database that contains two tables named ProductCategory and Product. Each table contains a column named ProductCategoryKey.
+
+You plan to ingest the tables into the warehouse using Dataflow Gen2.
+
+You need to merge the tables into a single table named Product. The combined table must contain all the rows from the Product table and the matching rows from the ProductCategory table.
+
+Which join configuration should you use?
+
+Select only one answer.
+
+a left anti join Product to ProductCategory
+
+a left anti join ProductCategory to Product
+
+a left outer join Product to ProductCategory
+
+a left outer join ProductCategory to Product","Only a left outer join from Product to Product Category will keep all the rows from Product but only matching rows from Product Category. The anti joins will only keep rows not found from the left table, in the right table, and the left outer join from ProductCategory to Product will start with the ProductCategory table and only keep matching rows from the Product table.",
+"You have a Fabric warehouse that contains two tables named FactSales and dimGeography. The dimGeography table has a primary key column named GeographyKey. The FactSales table has a foreign key column named GeographyKey.
+
+You create a Dataflow Gen2 query and add the tables as queries.
+
+You plan to use the Diagram view to visually transform the data.
+
+You need to join the two queries so that you retain all the rows in FactSales even if there are no matching rows for them in dimGeography.
+
+What should you do after you select FactSales?
+
+Select only one answer.
+
+Use Append queries as new transformation with FactSales as the first table and dimGeography as the second table.
+
+Use Merge queries as new transformation with Join kind set to Inner outer and FactSales as the left table and dimGeography as the right table.
+
+Use Merge queries as new transformation with join kind set to Left outer and FactSales as the left table and dimGeography as the right table.
+
+Use Merge queries as new transformation with Join kind set to Right outer and FactSales as the left table and dimGeography as the right table.","
+Use Merge queries as new transformation with join kind set to Left outer and FactSales as the left table and dimGeography as the right table.",
+"You are managing a set of Dataflow Gen2 queries that are currently ingesting tables into a Fabric lakehouse.
+
+You need to ensure that the tables are optimized for Direct Lake connections that will be used by connected semantic models.
+
+What should you do?
+
+Select only one answer.
+
+Apply an incremental refresh policy to the semantic model refreshes.
+
+Run the VACUUM command.
+
+Use OPTIMIZE to apply V-Order.
+
+Use shortcuts to the lakehouse tables from the semantic models.","Use OPTIMIZE to apply V-Order
+
+Each table in a lakehouse has a setting that must be turned on to optimize and apply the V-Order, which will greatly increase the Direct Lake speeds when connecting to these tables.",
+"You have a Fabric tenant that contains a workspace named Workspace1. Workspace1 contains a lakehouse named Lakehouse1.
+
+You open a notebook in Lakehouse1 and attach it to a Spark session.
+
+You plan to start a new notebook in Lakehouse1 and attach it to the same Spark session. However, you notice that the New high concurrency session option is unavailable, and the only available option is Standard session.
+
+You need to ensure that the high concurrency mode for notebooks is enabled.
+
+Where can you check the high concurrency mode?
+
+Select only one answer.
+
+Fabric tenant settings
+
+Lakehouse settings
+
+Notebook properties from the Edit menu
+
+Workspace settings","WORKSPACE SETTINGS
+
+The high concurrency mode for Fabric notebooks is set at the workspace level. It is on by default; however, it can be turned off in scenarios where notebooks require dedicated compute resources.
+
+",
+"You have a Fabric workspace that contains a lakehouse named Lakehouse1. Lakehouse1 contains a Delta Parquet table named FactSales.
+
+You use a Describe command to review the history of FactSales and notice that you have over 1000 versions of the table, and the retention policy is six months.
+
+You need to reduce the size of the FactSales table and the number of files in the table.
+
+What should you configure on the table?
+
+Select only one answer.
+
+Apply V-Order under Maintenance.
+
+Delete the FactSales table from Lakehouse1.
+
+Run the OPTIMIZE command under Maintenance.
+
+Run the VACUUM command under Maintenance.",The VACUUM command will delete unreferenced files that are older than whatever the configured retention policy is set to. This will reduce the number of files and the storage size.,
+"You have a Fabric tenant that contains a workspace named Workspace1. Workspace1 contains a warehouse and a Dataflow Gen2 query, which ingests the current year’s order data from an Azure SQL database.
+
+A table named Orders in the source database has 20 years of data. The Orders table contains a column named OrderDateTime that has the DateTime data type. The OrderDateTime column contains values in the format of MM/DD/YYYY, HH:MM:SS AM. For example: 01/05/2024, 05:30:00 PM.
+
+The Dataflow Gen2 query applies the following steps:
+
+Source: Set to the Azure SQL database.
+Navigation: Set to the Orders table.
+Split Column by position: Applied to the OrderDateTime column at position 11. This step generates the following two columns: OrderDateTime.1 and OrderDateTime.2.
+Filtered rows: Applied to OrderDateTime.1 to filter it to the current year.
+The dataflow takes longer than expected to run.
+
+You need to recommend a procedure to improve dataflow performance.
+
+What should you recommend?
+
+Select only one answer.
+
+
+For step 3, split the OrderDateTime column by delimiter instead of position.
+
+Insert a new step between step 1 and step 2 to force the table to load in full by using Table.Buffer.
+
+Insert a step between step 3 and step 4 to remove OrderDateTime.2 from the flow to load less data.
+ ","For step 3, first apply the filter transformation to the OrderDateTime column to current year, and then apply the split by position transformation.
+
+
+Some Microsoft Power Query transformations break query folding, which causes all the data to be pulled into Power Query before it is filtered. It is more efficient to filter the data at the source when possible before moving it to Power Query. Splitting a column by position (or delimiter) breaks query folding and causes all the data to load before the current year filter is applied. To enable query folding in this example, the OrderDateTime should be filtered first, then the rest of the transformations can be applied if desired. Removing the OderDateTime.2 column does not change the order of the operations, and therefore, will not enable query folding. Using Table.Buffer prevents downstream folding.",1
+"You have a Microsoft Power BI report that contains a table visual. The visual contains three DAX measures named Sales, Units, and Customers.
+
+You need to apply logic-based DAX formatting to the Sales measure. The solution must minimize administrative effort and prevent the modification of the other two measures.
+
+How should you apply the logic?
+
+Select only one answer.
+
+Use calculation group measure formatting.
+
+Use conditional formatting.
+
+Use dynamic measure formatting.
+
+Use the fields parameter.","
+Use dynamic measure formatting.",
+"You are developing a large semantic model.
+
+You have a fact table that contains 500 million rows. Most analytic queries will target aggregated data, but some users must still be able to view data on a detailed level.
+
+You plan to create a composite model and implement user-defined aggregations.
+
+Which three storage modes should you use for each type of table? Each correct answer presents part of the solution.
+
+Select all answers that apply.
+
+Aggregated tables should use Dual mode.
+
+Aggregated tables should use Import mode.
+
+The detailed fact table should use DirectQuery mode.
+
+The detailed fact table should use Import mode.
+
+Dimension tables should use DirectQuery mode.
+
+Dimension tables should use Dual mode.","Aggregated tables should use Import mode.
+The detailed fact table should use DirectQuery mode.
+Dimension tables should use Dual mode.
+
+
+When using ser-defined aggregations, the detailed fact table must be in DirectQuery mode. It is recommended to set the storage mode to Import for aggregated tables because of the performance, while dimension tables should be set to Dual mode to avoid the limitations of limited relationships",
+"ou have a DAX measure that contains the following code.
+
+Variance KPI =   
+IF( [Variance] > 0.80, ""Amazing!"", IF( [Variance] > 0.60, ""Good"", ""Bad"" ) )
+You need to optimize the measure so that it will calculate faster.
+
+Which code should you use?
+
+Select only one answer.
+
+SWITCH( TRUE(), [Variance] > 0.80, ""Amazing!"", [Variance] > 0.60, ""Good"", ""Bad"" )
+
+VAR Calc = [Variance] RETURN SWITCH(TRUE(), Calc > 0.80, ""Amazing!"", Calc > 0.60, ""Good"", ""Bad"" )
+
+VAR Calc = [Variance] RETURN SWITCH( TRUE(), Calc > 0.80, ""Amazing!"", [Variance] > 0.60, ""Good"", ""Bad"" )
+
+VAR Calc = [Variance] RETURN SWITCH( TRUE(), [Variance] > 0.80, ""Amazing!"", [Variance] > 0.60, ""Good"", ""Bad"" ","VAR Calc = [Variance] RETURN SWITCH(TRUE(), Calc > 0.80, ""Amazing!"", Calc > 0.60, ""Good"", ""Bad"" )",
+"You are designing a Microsoft Power BI semantic model that contains a measure named CompanyCosts.
+
+You need to restrict access to CompanyCosts and ensure that only a user named User1 can view the measure in reports.
+
+What should you implement?
+
+Select only one answer.
+
+data masking
+
+dynamic row-level security (RLS)
+
+object-level security (OLS)
+
+static row-level security (RLS)",object-level security (OLS),
+"You have a Fabric tenant that contains a workspace named Workspace1. Workspace 1 contains a warehouse named Warehouse1. Warehouse1 contains a table named Orders that contains 20 years of historical order data.
+
+You create a Microsoft Power BI semantic model from the Orders table.
+
+In Power BI Desktop, you enable incremental refresh for the table and load only one week’s worth of data. You publish the semantic model to Workspace1.
+
+Due to the size of the semantic model, you need to bootstrap the initial full load.
+
+What can you use to create the partitions in the Power BI service without processing them?
+
+Select only one answer.
+
+DAX Studio
+
+Microsoft Visual Studio Enterprise
+
+Microsoft Visual Studio Code
+
+Tabular Editor",Tabular Editor,
+"You publish a very large Microsoft Power BI semantic model to a Power BI workspace.
+
+The model refresh will take two hours.
+
+In Power BI Desktop, you limit the data you work with by using parameters.
+
+You need to update the definition of a measure.
+
+What can you use to update the measure definition without having to refresh the model in the Power BI service?
+
+Select only one answer.
+
+ALM Toolkit
+
+DAX Studio
+
+Microsoft Excel
+
+Power BI Desktop",ALM Toolkit,
+"You use Tabular Editor 2 to perform advanced data processing of the largest tables in a Microsoft Power BI semantic model.
+
+You need to load data to a table without rebuilding hierarchies and relationships and without recalculating calculated columns and measures.
+
+Which process mode should you use?
+
+Select only one answer.
+
+Process Data
+
+Process Default
+
+Process Defrag
+
+Process Recalc","Process DataProcess Data loads data to a table without rebuilding hierarchies or relationships or recalculating calculated columns and measures. With Process Default, hierarchies, calculated columns, and relationships are built or rebuilt (recalculated). Process Defrag defragments the auxiliary table indexes, while Process Recalc recalculates hierarchies, relationships, and calculated columns on a database level.",
+"You have a Fabric workspace that contains a Microsoft Power BI report named Sales.
+
+You plan to use Dataflow Gen2 to add an additional column to the report. The new column must be based on the unit price of a product. Any product that has a unit price that is greater than $1,000 must be labeled as High, while any product that has a unit price that is less than $1,000 must be labeled as Regular.
+
+What should you select on the Add column tab in Power Query Editor?
+
+Select only one answer.
+
+Duplicate column
+
+Conditional column
+
+Index column
+
+Merge columns
+",Conditional column,
+"You have a Fabric tenant that contains a workspace named Workspace1. Workspace1 contains a data pipeline named Pipeline1 that runs in the US-West Azure region. Workspace1 also contains a semantic model named SemanticModel1 and a warehouse named Warehouse1.
+
+You need to ensure that Pipeline1 runs at midnight (12:00 AM), and that the schedule is set to the UTC-0 time zone.
+
+How should you configure the schedule for Pipeline1?
+
+Select only one answer.
+
+Add a data pipeline notebook activity to convert the US West time zone to UTC-0.
+
+For Pipeline1, set the scheduler time zone to UTC-0.
+
+For SemanticModel1, set the schedule time zone to UTC-0.
+
+For Warehouse1, set the scheduler time zone to UTC-","For Pipeline1, set the scheduler time zone to UTC-0.",
+"You have a Fabric workspace named Workspace1.
+
+You plan to create a data pipeline to ingest data into Workspace1.
+
+You need to ensure that the pipeline activity supports parameterization.
+
+Which two activities support parameterization in the data pipeline UI? Each correct answer presents part of the solution.
+
+Select all answers that apply.
+
+Dataflow Gen2
+
+KQL activity
+
+notebooks
+
+SQL stored procedures
+
+user-defined functions","1> notebooks
+
+2> SQL Stored Procedures
+
+Only notebooks and SQL stored procedures provide a possibility to define parameters in the data pipeline UI. Dataflow Gen2 and KQL activity only require connection details, but no parameters can be supplied. User-defined functions cannot be added as an activity to a pipeline.",
+"You have a Fabric tenant that contains a lakehouse named Lakehouse1.
+
+A notebook named Notebook1 is used to ingest and transform data from an external data source before loading the data to Lakehouse1.
+
+You need to ensure that the process meets the following requirements:
+
+Runs daily at 7:00 AM.
+Attempts to rerun the process two more times if a source file is unavailable.
+The solution must minimize development effort.
+
+What should you do?
+
+Select only one answer.
+
+Create a pipeline. Add Notebook1 to the pipeline. Schedule the pipeline to run daily.
+
+Create a pipeline. Add Notebook1 to the pipeline three times. Connect the activities so that the second and third notebook activities run if the first activity fails. Schedule the pipeline to run daily.
+
+Create a pipeline. Add Notebook1 to the pipeline three times. Connect the activities so that the second notebook activity runs if the first activity fails and the third activity runs if the second activity fails. Schedule the pipeline to run daily.
+
+From the Notebook schedule settings, configure daily runs and retry settings.","
+Create a pipeline. Add Notebook1 to the pipeline. Schedule the pipeline to run daily.",1
+"You have a Fabric workspace that contains a complex semantic model for a Microsoft Power BI report.
+
+You need to optimize the semantic model for analytical queries and use denormalization to reduce the model complexity and the number of joins between tables.
+
+Which tables should you denormalize?
+
+Select only one answer.
+
+dimension tables on the same level of granularity
+
+fact tables on the same level of granularity
+
+role-playing dimension tables
+
+Snowflaked dimension tables",Snowflaked dimension tables,1
+"You have an Azure SQL database that contains fact table named UnpostedSales. UnpostedSales contains unposted payments.
+
+Each day payment records from the previous day are automatically truncated from the UnpostedSales table and replaced with today's payment records.
+
+You need to use a Dataflow Gen2 query to import the data into either a lakehouse or a warehouse. The solution must ensure that all current and historical records are maintained.
+
+What should you do to retain current and historical records during a refresh?
+
+Select only one answer.
+
+Configure the refresh to append data for the query.
+
+Configure the refresh to replace data for the query.
+
+Use Optimize to apply V-order for the query.
+
+Ensure that query folding occurs for the whole query.","
+Configure the refresh to append data for the query.",
+"You have a Fabric warehouse.
+
+You have an Azure SQL database that contains a fact table named Sales and a second table named ExceptionRecords. Both tables contain a unique key column named Record ID.
+
+You plan to ingest the Sales table into the warehouse.
+
+You need to use Dataflow Gen2 to configure a merge type to ensure that the Sales table excludes any records found in the ExceptionRecords table, and that query folding is maintained.
+
+Which applied steps should you use?
+
+Select only one answer.
+
+Merge (inner join) applied step, and then the expand columns applied step
+
+Merge (left anti join) applied step, and then the expand columns applied step
+
+Merge (left anti join) applied step, delete the “expand columns” column
+
+Merge (right anti join) applied step, and then the expand columns applied step","
+Merge (left anti join) applied step, and then the expand columns applied step
+
+A left anti join ensures that only rows not found in the ExceptionRecords table are loaded, and the expand columns step ensures that query folding is maintained for performance.",1
+"You have a Fabric workspace that contains a Microsoft Power BI report named Report1.
+
+Your organization does not currently have an enterprise data warehouse.
+
+You need to leverage dataflows to bring data into a Power BI semantic model. You notice that access to one of the data sources is restricted to narrow time windows.
+
+What should you do?
+
+Select only one answer.
+
+Create a linked table that will reference the data from another dataflow.
+
+Create a shared dataset that can be reused by multiple Power BI reports.
+
+Create a staging dataflow that will only copy the data from the source as-is.
+
+Create a transformation dataflow that will apply all the necessary data transformations.","
+Create a staging dataflow that will only copy the data from the source as-is.
+
+
+A staging dataflow copies raw data “as-is” from the data source and can then be used as a data source for further downstream transformations. This is especially useful when access to a data source is restricted to narrow time windows and/or to a few users.
+
+",
+"You have a Fabric tenant that contains a lakehouse named Lakehouse1.
+
+A SELECT query from a managed Delta table in Lakehouse1 takes longer than expected to complete. The table receives new records daily and must keep change history for seven days.
+
+You notice that the table contains 1,000 Parquet files that are each 1 MB.
+
+You need to improve query performance and reduce storage costs.
+
+What should you do from Lakehouse explorer?","
+Select Maintenance and run the OPTIMIZE command as well as the VACUUM command with a retention policy of seven days.",
+"You have a Fabric workspace that contains a lakehouse named Lakehouse1. Lakehouse1 contains a table named FactSales that is ingested by using a Dataflow Gen2 query.
+
+There are several applied steps and transformations applied to FactSales during the ingestion process.
+
+You notice that due to the number of Power Query transformations, there are occasional timeout issues for the dataflow.
+
+You need to recommend a solution to prevent the timeout issues.
+
+You have already confirmed that the query cannot be further optimized and that changing the refresh time does not improve the timeout issues.
+
+Which additional action should you recommend?
+
+Select only one answer.
+
+Change the FactSales destination to a newly created Fabric warehouse.
+
+Create a new group for the FactSales query.
+
+Create a second dataflow that ingests the FactSales table with no additional transformations, and then connect the original dataflow to transform the FactSales data by using this second dataflow.
+
+Create a shortcut to FactSales, connect the dataflow to the shortcut, and then apply the transformations.","Create a second dataflow that ingests the FactSales table with no additional transformations, and then connect the original dataflow to transform the FactSales data by using this second dataflow.",
+"You have a Fabric tenant that contains a workspace named Workspace1. Workspace1 contains a lakehouse, a data pipeline, a notebook, and several Microsoft Power BI reports.
+
+A user named User1 plans to use SQL to access the lakehouse to analyze data. User1 must have the following access:
+
+User1 must have read-only access to the lakehouse.
+User1 must NOT be able to access the rest of the items in Workspace1.
+User1 must NOT be able to use Spark to query the underlying files in the lakehouse.
+You need to configure access for User1.
+
+What should you do?
+
+Select only one answer.
+
+Add User1 to the workspace as a member, share the lakehouse with User1, and select Read all SQL Endpoint data.
+
+Add User1 to the workspace as a viewer, share the lakehouse with User1, and select Read all SQL Endpoint data.
+
+Share the lakehouse with User1 directly and select Build reports on the default dataset.
+
+Share the lakehouse with User1 directly and select Read all SQL Endpoint data.","Share the lakehouse with User1 directly and select Read all SQL Endpoint data.
+
+Since the user only needs access to the lakehouse and not the other items in the workspace, you should share the lakehouse directly and select Read all SQL Endpoint data. The user should not be added as a member of the workspace. All members of the workspace, even viewers, will be able to open all Power BI reports in the workspace. The SQL analytics endpoint itself cannot be shared directly; the Share options only show for the lakehouse.
+",
+"You use Microsoft Power BI Desktop to create a Power BI semantic model.
+
+You need to recommend a solution to collaborate with another Power BI modeler. The solution must ensure that you can both work on different parts of the model simultaneously. The solution must provide the most efficient and productive way to collaborate on the same model.
+
+What should you recommend?
+
+Select only one answer.
+
+Save your work as a PBIX file and email the file to the other modeler.
+
+Save your work as a PBIX file and publish the file to a Fabric workspace. Add the other modeler as member to the workspace.
+
+Save your work as a PBIX file to Microsoft OneDrive and share the file with the other modeler.
+
+Save your work as a Power BI Project (PBIP). Initialize a Git repository with version control.","
+Save your work as a Power BI Project (PBIP). Initialize a Git repository with version control.",
+"You have an Azure SQL database that contains a customer dimension table. The table contains two columns named CustomerID and CustomerCompositeKey.
+
+You have a Fabric workspace that contains a Dataflow Gen2 query that connects to the database.
+
+You need to use Dataflows Query Editor to identify which of the two columns contains non-duplicate values per customer.
+
+Which option should you use?
+
+Select only one answer.
+
+Column distribution – distinct values
+
+Column distribution – unique values
+
+Column profile – values count
+
+Column quality – valid values","Column distribution – distinct values
+
+Only the distinct values displayed under Column distribution will show the true number of rows of values that are distinct (one row per value). The count of unique only shows the number of distinct values that are in the first 1,000 rows, and the other two options do not review uniqueness.
+
+",
+"You have a Fabric lakehouse that contains a managed Delta table named Product.
+
+You plan to analyze the data by using a Fabric notebook and PySpark.
+
+You load the data to a DataFrame by running the following code.
+
+df = spark.sql(""SELECT * FROM Product"")
+
+You need to display the top 100 rows from the DataFrame.
+
+Which PySpark command should you run?
+
+Select only one answer.
+
+describe(df.limit(100))
+
+df.describe(100)
+
+df.printSchema(100)
+
+display(df.limit(100))","display(df.limit(100))
+
+",
+"You are profiling the data stored in a Fabric lakehouse.
+
+You run the following statement.
+
+df.describe().show()
+
+Which three functions will be included in the results for the numeric data? Each correct answer presents a complete solution.
+
+Select all answers that apply.
+
+AVG
+
+COUNT
+
+DISTINCTCOUNT
+
+MEAN
+
+STD (standard deviation)
+
+TOP","MEAN
+
+COUNT
+
+STD (Standard Deviation)",
+"You have a Fabric lakehouse named Lakehouse1.
+
+You use a notebook in Lakehouse1 to explore customer data.
+
+You need to identify the rows of a DataFrame named df_customers in which any of the columns (axis 1 of the DataFrame) are NULL.
+
+Which statement should you run?
+
+Select only one answer.
+
+df_customers[df_customers.isnull().any(axis=1)
+
+df_customers[df_customers.isnull().query(axis=1)
+
+df_customers[df_customers.isnull().sum(axis=1)
+
+df_customers[df_customers.nullif().any(axis=1)","df_customers[df_customers.isnull().any(axis=1)
+
+The isnull() method identifies which individual values are NULL. To see these individual values in context, you should filter the DataFrame to include only rows in which any of the columns (axis 1 of the DataFrame) are NULL.
+
+",
+"You have Fabric tenant that contains a workspace named Workspace1. Workspace1 contains a lakehouse names Lakehouse1. Lakehouse1 contains a dimension table called dimension_city. The table contains a column named City and a column named SalesTerritory.
+
+You need to visualize the number of cities in each sales territory in a bar chart. The sales territory must be on the X axis and the number of cities on the Y axis.
+
+You begin to create the following PySpark code in a Fabric notebook attached to Lakehouse1.
+
+from matplotlib import pyplot as plt
+
+# Get the data as a Pandas dataframe
+data = spark.sql(""SELECT SalesTerritory, COUNT(City) AS CityCount \
+                  FROM dimension_city \
+                  GROUP BY SalesTerritory \
+                  ORDER BY SalesTerritory"").toPandas()
+
+# Clear the plot area
+plt.clf()
+
+# Create a Figure
+fig = plt.figure(figsize=(12,8))
+You need to complete the code to meet the analysis requirements.
+
+How should you complete the code?
+
+Select only one answer.
+
+fig.bar(x=data['SalesTerritory'], height=data['CityCount'])fig.xlabel('SalesTerritory') fig.ylabel('Cities') fig.show()
+
+plt.bar(x=data['CityCount'], height=data[''SalesTerritory'']) plt.xlabel('SalesTerritory') plt.ylabel('Cities') plt.show()
+
+plt.bar(x=data['SalesTerritory'], height=data['CityCount']) plt.xlabel('SalesTerritory') plt.ylabel('Cities') plt.display()
+
+plt.bar(x=data['SalesTerritory'], height=data['CityCount']) plt.xlabel('SalesTerritory') plt.ylabel('Cities') plt.show()","plt.bar(x=data['SalesTerritory'], height=data['CityCount']) plt.xlabel('SalesTerritory') plt.ylabel('Cities') plt.show()
+
+
+plt.bar(x=data['SalesTerritory'], height=data['CityCount'])
+
+plt.xlabel('SalesTerritory')
+plt.ylabel('Cities')
+
+plt.show()'",
+"You have a Fabric warehouse.
+
+You are writing a T-SQL statement to retrieve data from a table named Sales to display the highest sales amount for specific customers.
+
+SELECT CustomerKey
+, SalesAmount
+, **<target1>** OVER(ORDER BY SalesAmount DESC) AS Ranking
+FROM dbo.Sales
+WHERE CustomerKey IN (1, 2, 3)
+You need to ensure that after ties for SalesAmount, the next Sales amount increments the Ranking value by one.
+
+The following is an example of the expected result.
+
+CustomerKey|SalesAmount|Ranking
+1|100|1
+2|100|1
+1|80|2
+Which function should you use for <target1> in the T-SQL statement?
+
+Select only one answer.
+
+DENSE_RANK()
+
+NTILE()
+
+RANK()
+
+ROW_NUMBER()",DENSE_RANK(),
+"You have a Fabric tenant that contains a workspace named Workspace1. Workspace1 is assigned to an F64 capacity and contains a lakehouse. The lakehouse contains one billion historical sales records and receives up to 10,000 new or updated sales records throughout the day at 15-minute intervals.
+
+You plan to build a custom Microsoft Power BI semantic model and Power BI reports from the data. The solution must provide the best report performance while supporting near-real-time (NRT) data reporting.
+
+Which Power BI semantic model storage mode should you use?
+
+Select only one answer.
+
+Direct Lake
+
+Import and Direct Lake combined
+
+DirectQuery
+
+Import","
+Direct Lake
+
+Direct Lake storage mode provides NRT access to data, while providing performance close to Import storage mode and much better performance than DirectQuery. DirectQuery provides NRT access to data, but queries can run slowly when working with large datasets. Import produces fast performance; however, it requires data to be loaded to the memory of Power BI and will not provide NRT. Direct Lake tables cannot currently be mixed with other table types, such as Import, DirectQuery, or Dual, in the same model. Composite models are not yet supported",
+"You are developing a complex semantic model that contains more than 20 date columns.
+
+You need to conform the date format for all the columns as quickly as possible.
+
+What should you use?
+
+Select only one answer.
+
+ALM Toolkit
+
+DAX Studio
+
+Tabular Editor
+
+VertiPaq Analyzer","Tabular Editor
+
+Tabular Editor supports semantic model modifications and saving back these changes to the semantic model, whereas DAX Studio and VertiPaq Analyzer support only read-only operations. ALM Toolkit is used for schema comparison for semantic models.",
