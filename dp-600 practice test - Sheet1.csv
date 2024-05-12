@@ -292,7 +292,25 @@ SELECT category, MAX(last_stocked_date) FROM inventory WHERE stock_quantity < 50
 
 SELECT category, last_stocked_date FROM inventory WHERE stock_quantity < 50 ORDER BY last_stocked_date DESC LIMIT 1
 
-SELECT DISTINCT category, last_stocked_date FROM inventory WHERE stock_quantity < 50 ORDER BY last_stocked_date DESC",,
+SELECT DISTINCT category, last_stocked_date FROM inventory WHERE stock_quantity < 50 ORDER BY last_stocked_date DESC",You have an Azure SQL database that contains a table named inventory. The inventory table contains the following columns:
+
+item_id
+category
+stock_quantity
+last_stocked_date
+You need to write a SQL statement that retrieves the latest last_stocked_date for each category, for which stock_quantity is less than 50.
+
+Which SQL statement should you run?
+
+Select only one answer.
+
+SELECT category, last_stocked_date FROM inventory GROUP BY category HAVING MIN(stock_quantity) < 50 ORDER BY last_stocked_date DESC
+
+SELECT category, MAX(last_stocked_date) FROM inventory WHERE stock_quantity < 50 GROUP BY category
+
+SELECT category, last_stocked_date FROM inventory WHERE stock_quantity < 50 ORDER BY last_stocked_date DESC LIMIT 1
+
+SELECT DISTINCT category, last_stocked_date FROM inventory WHERE stock_quantity < 50 ORDER BY last_stocked_date DESC,
 "You are planning a Fabric analytics solution.
 
 You need to recommend a licensing strategy to support 10 Microsoft Power BI report authors and 600 report consumers.
