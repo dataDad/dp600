@@ -1537,3 +1537,22 @@ Tabular Editor
 VertiPaq Analyzer","Tabular Editor
 
 Tabular Editor supports semantic model modifications and saving back these changes to the semantic model, whereas DAX Studio and VertiPaq Analyzer support only read-only operations. ALM Toolkit is used for schema comparison for semantic models.",
+
+"You have a Fabric tenant that contains a warehouse.
+
+Several times a day. the performance of all warehouse queries degrades. You suspect that Fabric is throttling the compute used by the warehouse.
+
+What should you use to identify whether throttling is occurring?" 
+
+A.
+the Capacity settings
+
+B.
+the Monitoring hub
+
+C.
+dynamic management views (DMVs)
+
+D.
+the Microsoft Fabric Capacity Metrics app,
+"B. The Monitoring Hub"
